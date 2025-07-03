@@ -1,0 +1,1 @@
+web: gunicorn proj_ICT_v1:app
