@@ -4,8 +4,9 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the model (make sure model.pkl is in the same folder)
+# Load the model and the scaler
 model = joblib.load("model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 @app.route("/")
 def home():
@@ -15,24 +16,28 @@ def home():
 def predict():
     if request.method == "POST":
         try:
-            # Extract data from the form
+            # Extract data from form
             pregnancies = int(request.form["pregnancies"])
             glucose = int(request.form["glucose"])
             bloodpressure = int(request.form["bloodpressure"])
             bmi = float(request.form["bmi"])
-            dpf = float(request.form["dpf"])  # Diabetes Pedigree Function
+            dpf = float(request.form["dpf"])
             age = int(request.form["age"])
 
-            # Combine into numpy array for prediction
+            # Combine into a numpy array
             input_data = np.array([[pregnancies, glucose, bloodpressure, bmi, dpf, age]])
 
-            # Make prediction
-            prediction = model.predict(input_data)[0]
+            # Apply scaling
+            input_scaled = scaler.transform(input_data)
 
-            # Format output
+            # Predict using the scaled input
+            prediction = model.predict(input_scaled)[0]
+
+            # Format result
             result = "Diabetic" if prediction == 1 else "Not Diabetic"
 
             return render_template("predict.html", prediction=result)
+
         except Exception as e:
             return render_template("predict.html", prediction=f"Error: {str(e)}")
 
