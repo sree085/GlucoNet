@@ -36,12 +36,13 @@
         display: flex;
         align-items: center;
         gap: 10px;
-      }
-      .logo-icon {
-        background-color: #0023ff;
-        color: #fff;
+        font-weight: 700;
         font-size: 24px;
-        padding: 8px;
+      }
+      .logo-icon img {
+        height: 50px;
+        width: 50px;
+        margin-right: 3px;
         border-radius: 12px;
       }
       .nav-links a {
@@ -49,6 +50,8 @@
         text-decoration: none;
         color: #000;
         font-weight: 500;
+        border-left: 1px solid #999;
+        padding-left: 20px;
       }
       .main-section {
         display: flex;
@@ -112,11 +115,10 @@
         <div class="logo-icon">
           <img src="{{ url_for('static', filename='ecg-logo.png') }}" alt="Logo" />
         </div>
-        <h1 style="font-size: 24px; font-weight: 600;">GLUCONET</h1>
-      </div>
+          <b>GLUCONET</b>
+        </div>
       <div class="nav-links">
-        <a href="#">support</a>
-        <a href="#">contact</a>
+        <a href="/">HOME</a>
       </div>
     </header>
 

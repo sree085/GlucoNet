@@ -35,19 +35,13 @@
       color: black;
     }
 
-    .logo-icon {
-      background-color: #5f00ff;
-      height: 40px;
-      width: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      margin-right: 10px;
-      font-size: 20px;
-      color: white;
-      font-family: monospace;
-    }
+  
+  .logo-icon img {
+    height: 50px;
+    width: 50px;
+    margin-right: 3px;
+    border-radius: 12px;
+  }
 
     .nav-links a {
       margin-left: 20px;
@@ -87,14 +81,15 @@
       GLUCONET
     </div>
     <div class="nav-links">
-      <a href="#">support</a>
-      <a href="#">contact</a>
+      <a href="/">HOME</a>
+      <a href="/predict">PREDICT</a>
     </div>
   </header>
 
   <section class="result-section">
     <img src="{{ url_for('static', filename='monster.png') }}" alt="Result Character" />
     <h1>NON-DIABETIC</h1>
+    <p>Enjoy life with energy and confidence! Just remember to keep an eye on your health with regular checkups</p>
   </section>
 </body>
 </html>
