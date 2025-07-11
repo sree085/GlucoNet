@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import joblib
 import numpy as np
 
@@ -11,6 +11,14 @@ scaler = joblib.load("scaler.pkl")
 @app.route("/")
 def home():
     return render_template("home.html")
+
+@app.route("/diabetic")
+def diabetic():
+    return render_template("diabetic.html")
+
+@app.route("/nondiabetic")
+def nondiabetic():
+    return render_template("nondiabetic.html")
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
@@ -33,15 +41,17 @@ def predict():
             # Predict using the scaled input
             prediction = model.predict(input_scaled)[0]
 
-            # Format result
-            result = "Diabetic" if prediction == 1 else "Not Diabetic"
-
-            return render_template("predict.html", prediction=result)
+            # Redirect to result page
+            if prediction == 1:
+                return redirect(url_for("diabetic"))
+            else:
+                return redirect(url_for("nondiabetic"))
 
         except Exception as e:
             return render_template("predict.html", prediction=f"Error: {str(e)}")
 
     return render_template("predict.html", prediction=None)
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result | GlucoNet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #153fd0;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 24px;
+      color: black;
+    }
+
+    .logo-icon {
+      background-color: #5f00ff;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      margin-right: 10px;
+      font-size: 20px;
+      color: white;
+      font-family: monospace;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      border-left: 1px solid #999;
+      padding-left: 20px;
+    }
+
+    .result-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .result-section img {
+      max-width: 200px;
+      margin-bottom: 30px;
+    }
+
+    .result-section h1 {
+      font-size: 32px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <div class="logo-icon">
+          <img src="{{ url_for('static', filename='ecg-logo.png') }}" alt="Logo" />
+        </div>
+      GLUCONET
+    </div>
+    <div class="nav-links">
+      <a href="#">support</a>
+      <a href="#">contact</a>
+    </div>
+  </header>
+
+  <section class="result-section">
+    <img src="{{ url_for('static', filename='monster.png') }}" alt="Result Character" />
+    <h1>DIABETIC</h1>
+  </section>
+</body>
+</html>
