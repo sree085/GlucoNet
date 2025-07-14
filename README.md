@@ -79,11 +79,3 @@ https://gluconet-production.up.railway.app
 **Sreedev SV**
 
 > [LinkedIn](https://www.linkedin.com/in/sreedevsv/) · [GitHub](https://github.com/sreedevsv)
-
----
-
-# 📃 License
-
-This project is licensed under the MIT License.
-
----
