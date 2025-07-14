@@ -74,8 +74,4 @@ https://gluconet-production.up.railway.app
 
 ---
 
-# 👨‍💻 Developed By
 
-**Sreedev SV**
-
-> [LinkedIn](https://www.linkedin.com/in/sreedevsv/) · [GitHub](https://github.com/sreedevsv)
